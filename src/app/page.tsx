@@ -19,20 +19,19 @@ export default function SerialMutationExample() {
     });
 
     // 버튼 클릭 시 여러 요청을 순차적으로 실행
-    const handleClick = async () => {
-      mutation.mutateSerial('첫 번째 요청');
-      mutation.mutateSerial('두 번째 요청');
-      mutation.mutateSerial('세 번째 요청');
+    const handleClick = () => {
+      for (let i = 0; i < 3; i++) {
+        mutation.mutateSerial(`${new Date().toLocaleTimeString()}에 발생한 요청`);
+      }
     };
 
     return (
         <div className="p-4">
             <button
-                className="px-4 py-2 bg-blue-500 text-white rounded"
+                className="px-4 py-2 bg-blue-500 text-white rounded cursor-pointer"
                 onClick={handleClick}
-                disabled={mutation.isPending}
             >
-                순차 실행 시작
+                요청 3개 실행
             </button>
 
             <div className="mt-4 space-y-2">

@@ -2,7 +2,7 @@
 export async function saveItemToServer(item: string): Promise<string> {
     return new Promise((resolve) => {
         setTimeout(() => {
-            resolve(`✅ 저장 완료: ${item}`);
+            resolve(`✅ 완료: ${item}`);
         }, 1000);
     });
 }
